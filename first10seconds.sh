@@ -24,6 +24,7 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || pr
 # Create aliases
 RASPI=/proc/device-tree/model
 if test -f "$RASPI"; then
+    # This section will only run if the device is a Raspberry Pi
     echo -e "\nCreating alias 'temp' for viewing Pi temperatures...\n"
     cd ~ && echo "alias temp='sudo /opt/vc/bin/vcgencmd measure_temp'" >> .bash_aliases
 fi
@@ -55,7 +56,7 @@ echo 'APT::Periodic::Unattended-Upgrade "1";' >> /etc/apt/apt.conf.d/10periodic
 echo -e "\nUpdating Timezone to PST...\n"
 timedatectl set-timezone PST
 
-
+# Done
 echo -e "\nSetup complete!"
 
 read -n1 -r -p "Press space to continue..." key
