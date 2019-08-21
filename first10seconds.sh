@@ -13,7 +13,7 @@ apt-get -qq update && apt-get -qq dist-upgrade && apt-get -qq upgrade -y && apt-
 # Install common packages
 echo -e "\nInstalling common packages...\n"
 echo -e "\nPython, git, nmap, fail2ban, unattended-upgrades, curl, ufw, docker, nvm, kubeadm\n"
-apt-get -qq install fail2ban git git-core nmap mitmproxy python-dev python-numpy python-scipy python-setuptools unattended-upgrades curl ufw kubeadm
+apt-get -qq install fail2ban git git-core nmap mitmproxy python-dev python-numpy python-scipy python-setuptools unattended-upgrades curl ufw kubeadm -y
 
 curl -L https://get.docker.com | sh
 
@@ -47,3 +47,9 @@ timedatectl set-timezone PST
 
 
 echo -e "\nSetup complete!"
+
+read -n1 -r -p "Press space to continue..." key
+
+if [ "$key" = '' ]; then
+    exit
+fi
