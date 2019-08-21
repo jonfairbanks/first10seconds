@@ -1,6 +1,6 @@
 # first10seconds
 
-Automating the first 10 minutes on a Linux server
+<h4>Automating the first 10 minutes on a Linux server</h4>
 
 Ideally you would use Chef/Puppet, but short of that, you can use this script to:
 - Run Updates, Upgrades and Clean Up
