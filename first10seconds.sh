@@ -43,6 +43,14 @@ ufw allow 443
 sed -i.bak 's/ENABLED=no/ENABLED=yes/g' /etc/ufw/ufw.conf
 chmod 0644 /etc/ufw/ufw.conf
 
+# Setup unattended-upgrades
+echo -e "\nConfiguring unattended-upgrades...\n"
+touch /etc/apt/apt.conf.d/10periodic
+echo 'APT::Periodic::Update-Package-Lists "1";' >> /etc/apt/apt.conf.d/10periodic
+echo 'APT::Periodic::Download-Upgradeable-Packages "1";' >> /etc/apt/apt.conf.d/10periodic
+echo 'APT::Periodic::AutocleanInterval "7";' >> /etc/apt/apt.conf.d/10periodic
+echo 'APT::Periodic::Unattended-Upgrade "1";' >> /etc/apt/apt.conf.d/10periodic
+
 # Set timezone to PST
 echo -e "\nUpdating Timezone to PST...\n"
 timedatectl set-timezone PST
