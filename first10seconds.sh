@@ -16,6 +16,7 @@ echo -e "\nPython, git, nmap, fail2ban, unattended-upgrades, curl, ufw, docker, 
 apt-get -qq install fail2ban git git-core nmap mitmproxy python-dev python-numpy python-scipy python-setuptools unattended-upgrades curl ufw kubeadm -y
 
 curl -L https://get.docker.com | sh
+sudo usermod -aG docker $USER
 
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
